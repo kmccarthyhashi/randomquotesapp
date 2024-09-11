@@ -103,7 +103,7 @@ resource "kubernetes_deployment" "app" {
   }
 }
 
-resource "kubernetes_service" "test" {
+resource "kubernetes_service" "app" {
   metadata {
     name = "bb-entrypoint"
     namespace = "default"
@@ -122,5 +122,5 @@ resource "kubernetes_service" "test" {
 }
 
 output "lb_ip" {
-  value = kubernetes_service.test.status.0.load_balancer.0.ingress.0.hostname
+  value = kubernetes_service.app.status.0.load_balancer.0.ingress.0.hostname
 }
