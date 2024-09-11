@@ -109,14 +109,14 @@ resource "kubernetes_service" "test" {
     namespace = "default"
   }
   spec {
-    type = "NodePort"
+    type = "LoadBalancer"
     selector = {
       App = kubernetes_deployment.app.spec.0.template.0.metadata[0].labels.App
     }
     port {
       port        = 80
       target_port = 80
-      node_port = 30001
+      # node_port = 30001
     }
   }
 }
