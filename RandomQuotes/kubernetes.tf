@@ -116,7 +116,6 @@ resource "kubernetes_service" "test" {
     port {
       port        = 80
       target_port = 80
-      node_port = 8081
     }
   }
 }
